@@ -46,7 +46,7 @@ foreach my $URL (@DNS_LG_SERVERS) {
 
     my $datos = decode_json $response->{content};
     foreach my $rr (@{$datos->{AnswerSection}}) {
-        print $rr->{Address}, ' ';
+        print $rr->{Address}, ' ' if $rr->{Type} eq 'A';
     }
     print "\n";
 }
